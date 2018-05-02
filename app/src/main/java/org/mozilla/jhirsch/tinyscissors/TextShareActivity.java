@@ -20,15 +20,14 @@ public class TextShareActivity extends Activity {
         // images and URLs later, maybe
         String type = intent.getType();
 
-        mWebView = (WebView) findViewById(R.id.activity_main_webview);
+        mWebView = (WebView) findViewById(R.id.activity_share_webview);
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
         if (Intent.ACTION_SEND.equals(action) && type != null) {
-            if ("text/plain").equals(type)){
+            if (("text/plain").equals(type)){
                 String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
                 mWebView.loadUrl(sharedText); // TODO check it's a valid URL
-
             }
         }
         // TODO: consider handling images, and ACTION_SEND_MULTIPLE if image uploads are added later
