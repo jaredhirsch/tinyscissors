@@ -8,8 +8,9 @@
     tools:context=".ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 
+
     <WebView
-        android:id="@+id/activity_share_webview"
+        android:id="@+id/activity_main_webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

@@ -13,6 +13,14 @@ public class TextShareActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_scrolling);
+
+        mWebView = (WebView) findViewById(R.id.activity_main_webview);
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+
         // get intent, action, mime type
         Intent intent = getIntent();
         String action = intent.getAction();
@@ -20,9 +28,6 @@ public class TextShareActivity extends Activity {
         // images and URLs later, maybe
         String type = intent.getType();
 
-        mWebView = (WebView) findViewById(R.id.activity_share_webview);
-        WebSettings webSettings = mWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
 
         if (Intent.ACTION_SEND.equals(action) && type != null) {
             if (("text/plain").equals(type)){
