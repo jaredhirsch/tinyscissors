@@ -14,6 +14,7 @@ import android.webkit.WebView;
 public class ScrollingActivity extends AppCompatActivity {
 
     private WebView mWebView;
+    private ScreenshottingWebViewClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

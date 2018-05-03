@@ -1,19 +1,24 @@
 package org.mozilla.jhirsch.tinyscissors;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Picture;
-import android.net.Uri;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+
 // automatically takes a screenshot when the url loads
 
 public class ScreenshottingWebViewClient extends WebViewClient {
+    private final TextShareActivity launchingActivity;
+
+    public ScreenshottingWebViewClient(TextShareActivity launchingActivity) {
+        this.launchingActivity = launchingActivity;
+    }
+
     public void onPageFinished(WebView view, String url) {
         // this code comes from https://stackoverflow.com/questions/9745988/how-can-i-programmatically-take-a-screenshot-of-a-webview-capturing-the-full-pa
         //Resize the webview to the height of the webpage
@@ -28,9 +33,6 @@ public class ScreenshottingWebViewClient extends WebViewClient {
         Canvas c = new Canvas( b );
         picture.draw( c );
 
-        // OK, now we want to render this into an ImageView and display it
-        // TODO: how do we get the bitmap from here back to the ImageView?
-        ImageView preview = (ImageView) view.findViewById(R.id.preview_imageview);
-        preview.setImageBitmap(b);
+        this.launchingActivity.setImage(picture, b, c);
     }
 }
