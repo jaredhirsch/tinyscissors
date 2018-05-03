@@ -25,6 +25,9 @@ public class TextShareActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            WebView.enableSlowWholeDocumentDraw();
+        }
         setContentView(R.layout.activity_scrolling);
 
         // TODO: do we really need this ref?
@@ -37,9 +40,6 @@ public class TextShareActivity extends Activity {
         webView = (WebView) this.<View>findViewById(R.id.activity_main_webview);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webView.enableSlowWholeDocumentDraw();
-        }
         // pass a ref into the web client, so we can get the picture back
         webView.setWebViewClient(new ScreenshottingWebViewClient(this));
 
