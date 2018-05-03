@@ -76,4 +76,10 @@ public class TextShareActivity extends Activity {
         imageView.setVisibility(View.VISIBLE);
 
     }
+
+    public void showWebView() {
+        // TODO is this wrong?
+        webView.setVisibility(View.VISIBLE);
+        imageView.setVisibility(View.GONE);
+    }
 }
