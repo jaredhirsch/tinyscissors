@@ -30,8 +30,6 @@ public class TextShareActivity extends Activity {
         }
         setContentView(R.layout.activity_scrolling);
 
-        // TODO: do we really need this ref?
-        linearLayout = (LinearLayout) findViewById(R.id.main_layout);
 
         imageView = (ImageView) this.<View>findViewById(R.id.preview_imageview);
         // TODO: hide the imageView at first
